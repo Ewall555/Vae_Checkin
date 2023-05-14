@@ -10,7 +10,8 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 
 def server_time(servertime):
-    dt = datetime.datetime.fromtimestamp(servertime)
+    china_timezone = datetime.timezone(datetime.timedelta(hours=8))
+    dt = datetime.datetime.fromtimestamp(servertime, china_timezone)
     date_str = dt.strftime('%Y-%m-%d %H:%M:%S')
     return date_str
 
