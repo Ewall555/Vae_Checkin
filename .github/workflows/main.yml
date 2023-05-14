@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run checkin
         run: |
+          sudo timedatectl set-timezone Asia/Shanghai
+          date
           python3 ./Vae/main.py --cookie_string "${{ secrets.VAE_COOKIE }}"
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
