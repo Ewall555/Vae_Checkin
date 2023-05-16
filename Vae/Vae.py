@@ -41,8 +41,6 @@ def vae(cookie_string):
     message = str()
     # 签到
     Checkin_Status, Checkin_Message = vae_checkin(cookie_string)
-    message = f"{message}【签到】\n*{Checkin_Message}\n"
-    print(f"【签到】\n*{Checkin_Message}")
     # 查询签到
     Status_Message = vae_status(cookie_string)
     if Status_Message[0]:
@@ -58,8 +56,8 @@ def vae(cookie_string):
         else:
             Checkin_signToday = "未签到"
         Time = server_time(Checkin_serverTime)
-        message = f"{message}【状态】\n*日期：{Time}\n*签到状态：{Checkin_signToday}\n*连续签到：{Checkin_continuity}天\n*总签到数：{Checkin_totalCount}天\n*今日排名：{Checkin_rank}\n"
-        print(f"【状态】\n*日期：{Time}\n*签到状态：{Checkin_signToday}\n*连续签到：{Checkin_continuity}天\n*总签到数：{Checkin_totalCount}天\n*今日排名：{Checkin_rank}")
+        message = f"{message}【状态】\n*签到：{Checkin_Message}\n*日期：{Time}\n*签到状态：{Checkin_signToday}\n*连续签到：{Checkin_continuity}天\n*总签到数：{Checkin_totalCount}天\n*今日排名：{Checkin_rank}\n"
+        print(f"【状态】\n*签到：{Checkin_Message}\n*日期：{Time}\n*签到状态：{Checkin_signToday}\n*连续签到：{Checkin_continuity}天\n*总签到数：{Checkin_totalCount}天\n*今日排名：{Checkin_rank}")
     else:
         Status_Status, Status_errMessage, Checkin_serverTime = Status_Message
         Time = server_time(Checkin_serverTime)
