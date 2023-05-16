@@ -22,7 +22,7 @@ def vae_checkin(cookie_string):
     response = requests.post(checkin_url, headers=headers)
     resp = json.loads(response.text)
     if resp["state"]:
-        return resp["state"], resp["animation"]["title"]
+        return resp["state"], resp["animation"]["medal"]["title"]
     return resp["state"], resp["errMsg"]
 
 
