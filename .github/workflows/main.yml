@@ -6,10 +6,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  run:
+  main-job:
+    name: Main Job
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run checkin
         run: |
           sudo timedatectl set-timezone Asia/Shanghai
@@ -23,3 +24,11 @@ jobs:
           WXPUSHER_APPTOKEN: ${{ secrets.WXPUSHER_APPTOKEN }}
           WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}
       - uses: gautamkrishnar/keepalive-workflow@master
+  keepalive-job:
+    name: Keepalive Workflow
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
