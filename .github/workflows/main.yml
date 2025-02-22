@@ -23,7 +23,6 @@ jobs:
           BARK_DEVICEKEY: ${{ secrets.BARK_DEVICEKEY }}
           WXPUSHER_APPTOKEN: ${{ secrets.WXPUSHER_APPTOKEN }}
           WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}
-      - uses: gautamkrishnar/keepalive-workflow@master
   keepalive-job:
     name: Keepalive Workflow
     if: ${{ always() }}
